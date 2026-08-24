@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshita Bhatia | Frontend Developer Portfolio</title>
+    <meta name="description" content="Personal Portfolio Website of Harshita Bhatia - Aspiring Frontend Developer and Student at CTAE Udaipur. Built for ShadowFox Beginner Task.">
+    
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Ambient background glows -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">HARSHITA BHATIA</a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="container hero-container">
+                <div class="hero-content reveal">
+                    <div class="badge-pill">
+                        <span class="badge-dot"></span>
+                        Hi, my name is Harshita.
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        HARSHITA<br>
+                        <span class="gradient-text">BHATIA.</span>
+                    </h1>
+
+                    <h2 class="hero-subtitle">Aspiring Frontend Developer</h2>
+
+                    <p class="hero-description">
+                        "I'm passionate about creating modern, responsive, and user-friendly web experiences, with an interest in combining frontend development with AI-powered solutions."
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#projects" class="btn btn-primary">
+                            View My Projects <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fa-regular fa-envelope"></i> Contact Me
+                        </a>
+                    </div>
+
+                    <div class="education-line">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>B.TECH AI & DATA SCIENCE · CTAE UDAIPUR · 2028</span>
+                    </div>
+                </div>
+
+                <!-- Portrait Card with Harshita's Photo -->
+                <div class="hero-visual reveal">
+                    <div class="portrait-card">
+                        <div class="portrait-badge top-badge">
+                            <i class="fa-solid fa-code"></i> Frontend Developer
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="assets/harshita.png" alt="Harshita Bhatia Portrait" class="portrait-img">
+                        </div>
+                        <div class="portrait-badge bottom-badge">
+                            <span class="pulse-dot"></span> Open to internships
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-tag">ABOUT ME</div>
+                <h2 class="section-title">A student developer building for the web</h2>
+
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>
+                            I'm Harshita, currently pursuing a B.Tech in Artificial Intelligence & Data Science at the College of Technology and Engineering (CTAE), Udaipur. While AI and data form my academic foundation, web development is where I spend most of my curiosity.
+                        </p>
+                        <p>
+                            My goal is to grow into a professional Web/Frontend Developer — writing clean, accessible interfaces that feel effortless to use. I'm especially drawn to projects where thoughtful frontend work meets basic AI-powered features, like turning personal reflections into helpful insights.
+                        </p>
+                        <p>
+                            Outside of code, three years of NCC have taught me discipline and teamwork, and participating in hackathons keeps me learning fast alongside peers who share a passion for building.
+                        </p>
+                    </div>
+
+                    <div class="about-highlights reveal">
+                        <div class="highlight-pill">
+                            <span class="pill-dot"></span> B.Tech AI & Data Science
+                        </div>
+                        <div class="highlight-pill">
+                            <span class="pill-dot"></span> CTAE Udaipur
+                        </div>
+                        <div class="highlight-pill">
+                            <span class="pill-dot"></span> Expected Graduation: 2028
+                        </div>
+                        <div class="highlight-pill">
+                            <span class="pill-dot"></span> Interested in Web/Frontend Development
+                        </div>
+                        <div class="highlight-pill">
+                            <span class="pill-dot"></span> Interested in Basic AI Integration
+                        </div>
+                        <div class="highlight-pill">
+                            <span class="pill-dot"></span> 3rd-Place Creative Upaay Hackathon Participant
+                        </div>
+                        <div class="highlight-pill">
+                            <span class="pill-dot"></span> 3rd-Year NCC Cadet
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section skills-section" id="skills">
+            <div class="container">
+                <div class="section-tag">SKILLS</div>
+                <h2 class="section-title">My current technical toolkit</h2>
+
+                <div class="skills-grid">
+                    <div class="skill-card reveal">
+                        <div class="skill-header">
+                            <div class="skill-icon-box"><i class="fa-solid fa-code"></i></div>
+                            <h3>Frontend</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML</span>
+                            <span class="skill-tag"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                            <span class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-header">
+                            <div class="skill-icon-box"><i class="fa-solid fa-terminal"></i></div>
+                            <h3>Programming</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-brands fa-python"></i> Python</span>
+                            <span class="skill-tag"><i class="fa-solid fa-c"></i> C++</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-header">
+                            <div class="skill-icon-box"><i class="fa-solid fa-database"></i></div>
+                            <h3>Database</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-solid fa-server"></i> SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-header">
+                            <div class="skill-icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <h3>Tools</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+                            <span class="skill-tag"><i class="fa-brands fa-github"></i> GitHub</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section services-section" id="services">
+            <div class="container">
+                <div class="section-tag">SERVICES</div>
+                <h2 class="section-title">What I can build & bring to the table</h2>
+
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <div class="service-number">01</div>
+                        <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Frontend / UI Implementation</h3>
+                        <p>
+                            Converting layout designs and ideas into clean, semantic, and fully responsive HTML, CSS, and JavaScript interfaces with smooth interactions.
+                        </p>
+                    </div>
+
+                    <div class="service-card reveal">
+                        <div class="service-number">02</div>
+                        <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <h3>Responsive Web Design</h3>
+                        <p>
+                            Crafting mobile-first web layouts that adapt seamlessly across mobile phones, tablets, and widescreen desktop monitors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects-section" id="projects">
+            <div class="container">
+                <div class="section-tag">PROJECTS</div>
+                <h2 class="section-title">Featured Projects</h2>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card reveal">
+                        <div class="project-header">
+                            <div class="project-icon-box"><i class="fa-solid fa-user-gear"></i></div>
+                            <span class="project-tag">Frontend Portfolio</span>
+                        </div>
+                        <h3 class="project-card-title">Personal Portfolio Website</h3>
+                        <p class="project-card-desc">
+                            A modern, dark-purple themed personal portfolio website built with HTML5, CSS3 glassmorphic design, and vanilla JavaScript. Responsive across all screen sizes.
+                        </p>
+                        <div class="project-tech-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card reveal">
+                        <div class="project-header">
+                            <div class="project-icon-box"><i class="fa-solid fa-list-check"></i></div>
+                            <span class="project-tag">Web Application</span>
+                        </div>
+                        <h3 class="project-card-title">Student Task Dashboard UI</h3>
+                        <p class="project-card-desc">
+                            An interactive web dashboard for student task tracking, schedule planning, and assignment progress visualization using clean CSS flexbox/grid layouts.
+                        </p>
+                        <div class="project-tech-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card reveal">
+                        <div class="project-header">
+                            <div class="project-icon-box"><i class="fa-solid fa-cubes"></i></div>
+                            <span class="project-tag">UI Component Suite</span>
+                        </div>
+                        <h3 class="project-card-title">Interactive Web Components</h3>
+                        <p class="project-card-desc">
+                            A collection of reusable frontend UI elements including glassmorphic modals, dark-mode toggle components, and form validation modules.
+                        </p>
+                        <div class="project-tech-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="section achievements-section" id="achievements">
+            <div class="container">
+                <div class="section-tag">ACHIEVEMENTS</div>
+                <h2 class="section-title">Milestones & Recognitions</h2>
+
+                <div class="achievements-grid">
+                    <div class="achievement-card reveal">
+                        <div class="achievement-icon"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="achievement-content">
+                            <h3>3rd Place — Creative Upaay Hackathon</h3>
+                            <p>Recognized for innovative prototype development and collaborative teamwork during the hackathon challenge.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card reveal">
+                        <div class="achievement-icon"><i class="fa-solid fa-medal"></i></div>
+                        <div class="achievement-content">
+                            <h3>3rd Year NCC Cadet</h3>
+                            <p>3 years of disciplined training in the National Cadet Corps, building strong leadership, perseverance, and teamwork.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card reveal">
+                        <div class="achievement-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="achievement-content">
+                            <h3>B.Tech AI & Data Science Student</h3>
+                            <p>Pursuing undergraduate degree at CTAE Udaipur (Class of 2028), combining data science fundamentals with web technologies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="section-tag">CONTACT</div>
+                <h2 class="section-title">Let's connect & build together</h2>
+
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <h3>Get In Touch</h3>
+                        <p>
+                            I'm open to internship opportunities, frontend projects, and collaboration. Feel free to reach out via email or LinkedIn!
+                        </p>
+
+                        <div class="contact-buttons">
+                            <a href="mailto:harshitabhatia@gmail.com" class="contact-btn-card">
+                                <div class="contact-btn-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="contact-btn-text">
+                                    <span class="contact-btn-label">Email Me</span>
+                                    <span class="contact-btn-value">harshitabhatia@gmail.com</span>
+                                </div>
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/harshita-bhatia-44b812325" target="_blank" rel="noopener noreferrer" class="contact-btn-card">
+                                <div class="contact-btn-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                                <div class="contact-btn-text">
+                                    <span class="contact-btn-label">LinkedIn</span>
+                                    <span class="contact-btn-value">harshita-bhatia-44b812325</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container reveal">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required placeholder="Project / Internship Opportunity">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Hi Harshita, I'd love to connect with you..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                                <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <div id="form-status" class="form-status"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Harshita Bhatia. Built for ShadowFox Internship Task.</p>
+            <a href="#home" class="back-to-top" id="back-to-top" aria-label="Back to top">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
