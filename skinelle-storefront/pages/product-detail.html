@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details — SKINELLE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body class="bg-[#FBF9F5] text-stone-900 font-sans antialiased">
+
+    <!-- NAVIGATION BAR -->
+    <header class="skinelle-navbar fixed top-0 left-0 right-0 z-40 bg-stone-50/90 backdrop-blur-md border-b border-stone-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-stone-900">SKINELLE</span>
+                <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide text-stone-600">
+                <a href="../index.html" class="hover:text-stone-900 transition-colors">Home</a>
+                <a href="products.html" class="hover:text-stone-900 transition-colors">Shop All</a>
+                <a href="../index.html#quiz-section" class="hover:text-stone-900 transition-colors">Skin Quiz</a>
+            </nav>
+
+            <div class="flex items-center space-x-4 sm:space-x-6">
+                <button type="button" class="trigger-cart-drawer relative flex items-center gap-2.5 px-4 py-2 rounded-full bg-stone-900 text-stone-100 text-xs font-semibold hover:bg-stone-800 transition-all shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span>Bag</span>
+                    <span class="cart-count-badge hidden bg-amber-500 text-stone-950 text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center -mr-1">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="pt-28 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Breadcrumb -->
+        <nav class="text-xs text-stone-500 mb-8 flex items-center gap-2">
+            <a href="../index.html" class="hover:underline">Home</a>
+            <span>/</span>
+            <a href="products.html" class="hover:underline">Shop</a>
+            <span>/</span>
+            <span id="detail-breadcrumb-name" class="text-stone-900 font-medium">Product Detail</span>
+        </nav>
+
+
+        <!-- Main Product Detail View -->
+        <div id="product-detail-container" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Dynamic JavaScript populates product details here -->
+        </div>
+
+
+        <!-- Recommended Products Section -->
+        <section class="mt-24 pt-16 border-t border-stone-200">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="font-serif text-3xl font-light text-stone-900">Complete Your Ritual</h3>
+                <a href="products.html" class="text-xs font-semibold text-stone-600 hover:text-stone-900">View Catalog →</a>
+            </div>
+            
+            <div id="recommended-products-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <!-- Javascript renders 3 related items -->
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-300 py-12 border-t border-stone-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="font-serif text-xl font-bold tracking-wider text-white block mb-2">SKINELLE</span>
+            <p class="text-stone-400">© 2026 SKINELLE. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- SLIDE-OVER CART DRAWER MODAL -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 z-50 bg-stone-950/50 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+    <div id="cart-slide-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[#FBF9F5] shadow-2xl transition-transform duration-300 ease-out transform translate-x-full flex flex-col">
+        <div class="p-6 border-b border-stone-200 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Your Bag</h3>
+                <span class="cart-count-badge bg-stone-900 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">0</span>
+            </div>
+            <button type="button" id="close-cart-drawer" class="p-2 text-stone-500 hover:text-stone-900">✕</button>
+        </div>
+        <div class="px-6 py-3 bg-stone-100 border-b border-stone-200">
+            <p id="free-shipping-text" class="text-xs text-stone-600 text-center mb-2">Calculating shipping...</p>
+            <div class="w-full h-1.5 bg-stone-200 rounded-full overflow-hidden">
+                <div id="free-shipping-progress" class="h-full bg-emerald-600 transition-all duration-300" style="width: 0%;"></div>
+            </div>
+        </div>
+        <div class="flex-grow overflow-y-auto p-6 space-y-4">
+            <div id="cart-drawer-empty" class="text-center py-16 space-y-4">
+                <h4 class="font-serif text-xl font-medium text-stone-800">Your bag is empty</h4>
+            </div>
+            <div id="cart-drawer-items"></div>
+        </div>
+        <div id="cart-drawer-footer" class="p-6 border-t border-stone-200 bg-white space-y-4 hidden">
+            <div class="flex justify-between text-sm"><span class="text-stone-500">Subtotal</span><span id="cart-drawer-subtotal" class="font-bold text-stone-900">₹0</span></div>
+            <div class="flex justify-between text-base font-bold border-t border-stone-100 pt-3"><span class="text-stone-900">Total</span><span id="cart-drawer-total" class="text-stone-900">₹0</span></div>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <a href="cart.html" class="py-3.5 rounded-xl border border-stone-300 text-stone-800 text-xs font-semibold text-center hover:bg-stone-50 transition-colors">View Cart Page</a>
+                <button type="button" onclick="triggerCheckoutSimulation()" class="py-3.5 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors shadow-md">Checkout Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT SIMULATOR MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white max-w-md w-full rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-4">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Express Checkout</h3>
+                <button type="button" onclick="closeCheckoutModal()" class="text-stone-400 hover:text-stone-900">✕</button>
+            </div>
+            <form onsubmit="completeCheckoutOrder(event)" class="space-y-4">
+                <div>
+                    <label class="text-xs font-semibold text-stone-700 block mb-1">Full Name</label>
+                    <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                </div>
+                <div>
+                    <label class="text-xs font-semibold text-stone-700 block mb-1">Shipping Address</label>
+                    <input type="text" required placeholder="123 Serenity Blvd, Suite 4" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all shadow-lg">Confirm & Place Order →</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Page Specific Script -->
+    <script src="../js/store.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id') || 'serum-calm';
+            const product = PRODUCTS.find(p => p.id === productId) || PRODUCTS[0];
+
+            document.title = `${product.name} — SKINELLE`;
+            document.getElementById('detail-breadcrumb-name').textContent = product.name;
+
+            const container = document.getElementById('product-detail-container');
+            let selectedVolume = product.volumeOptions ? product.volumeOptions[0] : 'Standard';
+            let quantity = 1;
+
+            container.innerHTML = `
+                <!-- Left Image Gallery -->
+                <div class="lg:col-span-6 space-y-4">
+                    <div class="bg-white rounded-3xl overflow-hidden border border-stone-200 aspect-square shadow-sm">
+                        <img id="detail-main-img" src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+
+                <!-- Right Product Info -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-stone-900 text-stone-100 text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">${product.tag || 'Clean Formula'}</span>
+                            <div class="flex items-center gap-1 text-amber-500 text-xs font-semibold">
+                                <span>★</span>
+                                <span>${product.rating}</span>
+                                <span class="text-stone-400 font-normal">(${product.reviewsCount} verified reviews)</span>
+                            </div>
+                        </div>
+
+                        <h1 class="font-serif text-4xl sm:text-5xl font-light text-stone-900 mb-2">${product.name}</h1>
+                        <p class="text-sm text-stone-500 font-medium mb-4">${product.subtitle}</p>
+
+                        <div class="flex items-baseline gap-3 mb-6">
+                            <span id="detail-price" class="text-3xl font-bold text-stone-900">${formatCurrency(product.price)}</span>
+                            ${product.originalPrice ? `<span class="text-sm text-stone-400 line-through">${formatCurrency(product.originalPrice)}</span>` : ''}
+                        </div>
+                    </div>
+
+                    <p class="text-stone-600 text-sm leading-relaxed border-t border-stone-200/80 pt-6">${product.description}</p>
+
+                    <!-- Volume Selector -->
+                    ${product.volumeOptions ? `
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold text-stone-500 uppercase tracking-wider block">Volume Size</label>
+                            <div class="flex gap-3">
+                                ${product.volumeOptions.map((vol, idx) => `
+                                    <button type="button" class="detail-vol-btn px-4 py-2.5 rounded-xl border text-xs font-semibold transition-all ${idx === 0 ? 'bg-stone-900 text-white border-stone-900' : 'bg-white text-stone-700 border-stone-300 hover:border-stone-500'}" data-vol="${vol}">
+                                        ${vol}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <!-- Quantity Stepper & Add to Bag -->
+                    <div class="flex items-center gap-4 pt-4 border-t border-stone-200/80">
+                        <div class="inline-flex items-center border border-stone-300 rounded-xl bg-white p-1 text-sm">
+                            <button type="button" id="qty-minus" class="px-3 py-1.5 text-stone-600 hover:bg-stone-100 rounded-lg">-</button>
+                            <span id="qty-display" class="px-4 font-bold text-stone-900">1</span>
+                            <button type="button" id="qty-plus" class="px-3 py-1.5 text-stone-600 hover:bg-stone-100 rounded-lg">+</button>
+                        </div>
+
+                        <button type="button" id="detail-add-bag" class="flex-grow py-4 rounded-2xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all shadow-xl">
+                            Add to Bag — ${formatCurrency(product.price)}
+                        </button>
+                    </div>
+
+                    <!-- Accordion Info -->
+                    <div class="pt-6 border-t border-stone-200 space-y-4 text-xs">
+                        <details class="group border-b border-stone-200/60 pb-3" open>
+                            <summary class="font-bold text-stone-900 cursor-pointer flex justify-between items-center uppercase tracking-wider">
+                                <span>Key Active Botanicals</span>
+                                <span class="group-open:rotate-180 transition-transform">↓</span>
+                            </summary>
+                            <div class="pt-3 text-stone-600 leading-relaxed flex flex-wrap gap-2">
+                                ${product.keyIngredients.map(ing => `<span class="bg-stone-100 px-3 py-1 rounded-lg border border-stone-200 font-medium">${ing}</span>`).join('')}
+                            </div>
+                        </details>
+
+                        <details class="group border-b border-stone-200/60 pb-3">
+                            <summary class="font-bold text-stone-900 cursor-pointer flex justify-between items-center uppercase tracking-wider">
+                                <span>How to Apply</span>
+                                <span class="group-open:rotate-180 transition-transform">↓</span>
+                            </summary>
+                            <p class="pt-3 text-stone-600 leading-relaxed">${product.howToUse}</p>
+                        </details>
+
+                        <details class="group border-b border-stone-200/60 pb-3">
+                            <summary class="font-bold text-stone-900 cursor-pointer flex justify-between items-center uppercase tracking-wider">
+                                <span>Full INCI Ingredients</span>
+                                <span class="group-open:rotate-180 transition-transform">↓</span>
+                            </summary>
+                            <p class="pt-3 text-stone-500 font-mono text-[11px] leading-relaxed">${product.fullIngredients}</p>
+                        </details>
+                    </div>
+
+                </div>
+            `;
+
+            // Volume Button Listeners
+            const volBtns = container.querySelectorAll('.detail-vol-btn');
+            volBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    volBtns.forEach(b => b.className = 'detail-vol-btn px-4 py-2.5 rounded-xl border text-xs font-semibold transition-all bg-white text-stone-700 border-stone-300 hover:border-stone-500');
+                    btn.className = 'detail-vol-btn px-4 py-2.5 rounded-xl border text-xs font-semibold transition-all bg-stone-900 text-white border-stone-900';
+                    selectedVolume = btn.getAttribute('data-vol');
+                });
+            });
+
+            // Quantity Stepper
+            const minusBtn = document.getElementById('qty-minus');
+            const plusBtn = document.getElementById('qty-plus');
+            const qtyDisplay = document.getElementById('qty-display');
+            const addBagBtn = document.getElementById('detail-add-bag');
+
+            if (minusBtn) {
+                minusBtn.addEventListener('click', () => {
+                    if (quantity > 1) {
+                        quantity--;
+                        qtyDisplay.textContent = quantity;
+                        addBagBtn.textContent = `Add to Bag — ${formatCurrency(product.price * quantity)}`;
+                    }
+                });
+            }
+
+            if (plusBtn) {
+                plusBtn.addEventListener('click', () => {
+                    quantity++;
+                    qtyDisplay.textContent = quantity;
+                    addBagBtn.textContent = `Add to Bag — ${formatCurrency(product.price * quantity)}`;
+                });
+            }
+
+            if (addBagBtn) {
+                addBagBtn.addEventListener('click', () => {
+                    storeCart.addItem(product.id, selectedVolume, quantity);
+                    if (window.openCartDrawer) window.openCartDrawer();
+                });
+            }
+
+            // Recommended Products
+            const recGrid = document.getElementById('recommended-products-grid');
+            const otherProducts = PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
+            recGrid.innerHTML = otherProducts.map(p => `
+                <div class="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs flex flex-col justify-between">
+                    <img src="${p.image}" alt="${p.name}" class="w-full aspect-square object-cover rounded-xl mb-4 bg-stone-100" />
+                    <div>
+                        <h4 class="font-serif text-lg font-medium text-stone-900 mb-1">${p.name}</h4>
+                        <p class="text-xs text-stone-500 mb-3">${p.subtitle}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-bold text-stone-900">${formatCurrency(p.price)}</span>
+                            <a href="product-detail.html?id=${p.id}" class="text-xs font-semibold text-stone-900 underline">View</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
+
+</html>

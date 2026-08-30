@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Skincare Rituals — SKINELLE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body class="bg-[#FBF9F5] text-stone-900 font-sans antialiased">
+
+    <!-- NAVIGATION BAR -->
+    <header class="skinelle-navbar fixed top-0 left-0 right-0 z-40 bg-stone-50/90 backdrop-blur-md border-b border-stone-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <button type="button" id="mobile-menu-btn" class="lg:hidden p-2 text-stone-700 hover:text-stone-900">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+
+            <a href="../index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-stone-900">SKINELLE</span>
+                <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide text-stone-600">
+                <a href="../index.html" class="hover:text-stone-900 transition-colors">Home</a>
+                <a href="products.html" class="text-stone-900 font-semibold border-b-2 border-stone-900 pb-0.5">Shop All</a>
+                <a href="../index.html#quiz-section" class="hover:text-stone-900 transition-colors">Skin Quiz</a>
+                <a href="../index.html#ingredients" class="hover:text-stone-900 transition-colors">Ingredients</a>
+            </nav>
+
+            <div class="flex items-center space-x-4 sm:space-x-6">
+                <button type="button" class="trigger-cart-drawer relative flex items-center gap-2.5 px-4 py-2 rounded-full bg-stone-900 text-stone-100 text-xs font-semibold hover:bg-stone-800 transition-all shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span>Bag</span>
+                    <span class="cart-count-badge hidden bg-amber-500 text-stone-950 text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center -mr-1">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none translate-x-full">
+        <div class="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-[#FBF9F5] p-6 shadow-2xl flex flex-col justify-between">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-stone-200">
+                    <span class="font-serif text-xl font-semibold tracking-wider">SKINELLE</span>
+                    <button type="button" id="close-mobile-nav" class="p-2 text-stone-500 hover:text-stone-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4 py-6 text-stone-800 text-base font-medium">
+                    <a href="../index.html" class="py-2 border-b border-stone-100">Home</a>
+                    <a href="products.html" class="py-2 border-b border-stone-100 font-bold">Shop Catalog</a>
+                    <a href="cart.html" class="py-2 border-b border-stone-100">Shopping Bag</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <main class="pt-28 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Title Banner -->
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span class="text-xs font-bold tracking-widest uppercase text-amber-700">Clean Formulations</span>
+            <h1 class="font-serif text-4xl sm:text-5xl font-light text-stone-900">The Skincare Collection</h1>
+            <p class="text-stone-600 text-sm">Explore biocompatible serums, whipped moisturizers, and mineral sunscreens designed to soothe, hydrate, and illuminate.</p>
+        </div>
+
+
+        <!-- Filter Controls Bar -->
+        <div class="bg-white p-4 sm:p-6 rounded-3xl border border-stone-200/80 shadow-xs mb-10 space-y-6">
+            
+            <!-- Category Tabs + Search Input -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                
+                <!-- Category Pills -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+                    <button type="button" data-category="all" class="shop-category-btn px-4 py-2 rounded-full text-xs font-semibold transition-all bg-stone-900 text-white shadow-xs">All Products</button>
+                    <button type="button" data-category="serums" class="shop-category-btn px-4 py-2 rounded-full text-xs font-semibold transition-all bg-stone-100 text-stone-600 hover:bg-stone-200">Serums</button>
+                    <button type="button" data-category="moisturizers" class="shop-category-btn px-4 py-2 rounded-full text-xs font-semibold transition-all bg-stone-100 text-stone-600 hover:bg-stone-200">Moisturizers</button>
+                    <button type="button" data-category="sunscreen" class="shop-category-btn px-4 py-2 rounded-full text-xs font-semibold transition-all bg-stone-100 text-stone-600 hover:bg-stone-200">Sun Care</button>
+                    <button type="button" data-category="cleansers" class="shop-category-btn px-4 py-2 rounded-full text-xs font-semibold transition-all bg-stone-100 text-stone-600 hover:bg-stone-200">Cleansers</button>
+                    <button type="button" data-category="sets" class="shop-category-btn px-4 py-2 rounded-full text-xs font-semibold transition-all bg-stone-100 text-stone-600 hover:bg-stone-200">Bundles</button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative min-w-[240px]">
+                    <input type="text" id="shop-search-input" placeholder="Search formulas, ingredients..." class="w-full pl-10 pr-4 py-2 rounded-full border border-stone-300 bg-stone-50 text-xs focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                    <svg class="w-4 h-4 text-stone-400 absolute left-3.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </div>
+
+            </div>
+
+
+            <!-- Secondary Filter & Sorting Controls -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-stone-100 text-xs">
+                
+                <!-- Skin Type Checkboxes -->
+                <div class="flex items-center gap-4 flex-wrap">
+                    <span class="font-bold text-stone-500 uppercase tracking-wider text-[10px]">Target Skin:</span>
+                    <label class="inline-flex items-center gap-1.5 cursor-pointer text-stone-700">
+                        <input type="checkbox" value="sensitive" class="skin-type-checkbox rounded text-stone-900 focus:ring-0" />
+                        <span>Sensitive</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1.5 cursor-pointer text-stone-700">
+                        <input type="checkbox" value="dry" class="skin-type-checkbox rounded text-stone-900 focus:ring-0" />
+                        <span>Dry</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1.5 cursor-pointer text-stone-700">
+                        <input type="checkbox" value="oily" class="skin-type-checkbox rounded text-stone-900 focus:ring-0" />
+                        <span>Oily</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1.5 cursor-pointer text-stone-700">
+                        <input type="checkbox" value="combination" class="skin-type-checkbox rounded text-stone-900 focus:ring-0" />
+                        <span>Combination</span>
+                    </label>
+                </div>
+
+                <!-- Sort & Count -->
+                <div class="flex items-center justify-between sm:justify-end gap-4">
+                    <span id="products-count" class="text-stone-400 font-medium">6 products found</span>
+                    <select id="shop-sort-select" class="px-3 py-1.5 rounded-lg border border-stone-300 bg-white text-stone-700 text-xs focus:outline-none">
+                        <option value="featured">Featured Order</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Dynamic Product Catalog Grid -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- JavaScript will render product cards here -->
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-300 py-12 border-t border-stone-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="font-serif text-xl font-bold tracking-wider text-white block mb-2">SKINELLE</span>
+            <p class="text-stone-400">© 2026 SKINELLE. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- SLIDE-OVER CART DRAWER MODAL -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 z-50 bg-stone-950/50 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+    <div id="cart-slide-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[#FBF9F5] shadow-2xl transition-transform duration-300 ease-out transform translate-x-full flex flex-col">
+        <div class="p-6 border-b border-stone-200 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Your Bag</h3>
+                <span class="cart-count-badge bg-stone-900 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">0</span>
+            </div>
+            <button type="button" id="close-cart-drawer" class="p-2 text-stone-500 hover:text-stone-900">✕</button>
+        </div>
+        <div class="px-6 py-3 bg-stone-100 border-b border-stone-200">
+            <p id="free-shipping-text" class="text-xs text-stone-600 text-center mb-2">Calculating shipping...</p>
+            <div class="w-full h-1.5 bg-stone-200 rounded-full overflow-hidden">
+                <div id="free-shipping-progress" class="h-full bg-emerald-600 transition-all duration-300" style="width: 0%;"></div>
+            </div>
+        </div>
+        <div class="flex-grow overflow-y-auto p-6 space-y-4">
+            <div id="cart-drawer-empty" class="text-center py-16 space-y-4">
+                <h4 class="font-serif text-xl font-medium text-stone-800">Your bag is empty</h4>
+            </div>
+            <div id="cart-drawer-items"></div>
+        </div>
+        <div id="cart-drawer-footer" class="p-6 border-t border-stone-200 bg-white space-y-4 hidden">
+            <div class="flex justify-between text-sm"><span class="text-stone-500">Subtotal</span><span id="cart-drawer-subtotal" class="font-bold text-stone-900">₹0</span></div>
+            <div class="flex justify-between text-base font-bold border-t border-stone-100 pt-3"><span class="text-stone-900">Total</span><span id="cart-drawer-total" class="text-stone-900">₹0</span></div>
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <a href="cart.html" class="py-3.5 rounded-xl border border-stone-300 text-stone-800 text-xs font-semibold text-center hover:bg-stone-50 transition-colors">View Cart Page</a>
+                <button type="button" onclick="triggerCheckoutSimulation()" class="py-3.5 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors shadow-md">Checkout Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK VIEW MODAL -->
+    <div id="quick-view-overlay" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="quick-view-modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-11/12 max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative grid grid-cols-1 md:grid-cols-2">
+            <button type="button" id="close-quick-view" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 backdrop-blur-md text-stone-600 hover:text-stone-900 shadow-md">✕</button>
+            <div class="bg-stone-100 aspect-square">
+                <img id="qv-product-image" src="" alt="" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-6 md:p-8 flex flex-col justify-between space-y-4 max-h-[80vh] overflow-y-auto">
+                <div>
+                    <span id="qv-product-category" class="text-[10px] font-bold tracking-wider uppercase text-amber-700 block mb-1">SERUMS</span>
+                    <h3 id="qv-product-name" class="font-serif text-2xl font-semibold text-stone-900 mb-2">Product Name</h3>
+                    <p id="qv-product-price" class="text-xl font-bold text-stone-900 mb-4">₹0</p>
+                    <p id="qv-product-desc" class="text-xs text-stone-600 leading-relaxed mb-4">Description text...</p>
+                    <div class="mb-4">
+                        <label class="text-[11px] font-bold text-stone-500 uppercase tracking-wider block mb-2">Select Volume</label>
+                        <div id="qv-volume-options" class="flex gap-2"></div>
+                    </div>
+                    <div>
+                        <label class="text-[11px] font-bold text-stone-500 uppercase tracking-wider block mb-2">Key Actives</label>
+                        <div id="qv-product-ingredients" class="flex flex-wrap gap-1.5"></div>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-stone-200">
+                    <button type="button" id="qv-add-to-bag" class="w-full py-3.5 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all shadow-lg">Add to Shopping Bag</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT SIMULATOR MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white max-w-md w-full rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-4">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Express Checkout</h3>
+                <button type="button" onclick="closeCheckoutModal()" class="text-stone-400 hover:text-stone-900">✕</button>
+            </div>
+            <form onsubmit="completeCheckoutOrder(event)" class="space-y-4">
+                <div>
+                    <label class="text-xs font-semibold text-stone-700 block mb-1">Full Name</label>
+                    <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                </div>
+                <div>
+                    <label class="text-xs font-semibold text-stone-700 block mb-1">Shipping Address</label>
+                    <input type="text" required placeholder="123 Serenity Blvd, Suite 4" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all shadow-lg">Confirm & Place Order →</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="../js/store.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/shop.js"></script>
+</body>
+
+</html>

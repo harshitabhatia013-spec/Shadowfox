@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKINELLE — Simple Rituals. Healthier Skin.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body class="bg-[#FBF9F5] text-stone-900 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
+
+    <!-- ==========================================================================
+         1. GLOBAL NAVIGATION BAR
+    ========================================================================== -->
+    <header class="skinelle-navbar fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button type="button" id="mobile-menu-btn" class="lg:hidden p-2 text-stone-700 hover:text-stone-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-stone-900">SKINELLE</span>
+                <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide text-stone-600">
+                <a href="index.html" class="text-stone-900 font-semibold border-b-2 border-stone-900 pb-0.5">Home</a>
+                <a href="pages/products.html" class="hover:text-stone-900 transition-colors">Shop All</a>
+                <a href="#quiz-section" class="hover:text-stone-900 transition-colors">Skin Quiz</a>
+                <a href="#ingredients" class="hover:text-stone-900 transition-colors">Ingredients</a>
+                <a href="#story" class="hover:text-stone-900 transition-colors">Our Philosophy</a>
+            </nav>
+
+            <!-- Nav Action Controls -->
+            <div class="flex items-center space-x-4 sm:space-x-6">
+                <a href="pages/products.html" class="hidden sm:inline-flex text-stone-600 hover:text-stone-900 p-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </a>
+
+                <button type="button" class="trigger-cart-drawer relative flex items-center gap-2.5 px-4 py-2 rounded-full bg-stone-900 text-stone-100 text-xs font-semibold hover:bg-stone-800 transition-all shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span>Bag</span>
+                    <span class="cart-count-badge hidden bg-amber-500 text-stone-950 text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center -mr-1">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="fixed inset-0 z-50 bg-stone-950/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none translate-x-full">
+        <div class="absolute right-0 top-0 bottom-0 w-4/5 max-w-sm bg-[#FBF9F5] p-6 shadow-2xl flex flex-col justify-between">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-stone-200">
+                    <span class="font-serif text-xl font-semibold tracking-wider">SKINELLE</span>
+                    <button type="button" id="close-mobile-nav" class="p-2 text-stone-500 hover:text-stone-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-4 py-6 text-stone-800 text-base font-medium">
+                    <a href="index.html" class="py-2 border-b border-stone-100">Home</a>
+                    <a href="pages/products.html" class="py-2 border-b border-stone-100">Shop Catalog</a>
+                    <a href="pages/cart.html" class="py-2 border-b border-stone-100">Shopping Bag</a>
+                    <a href="#quiz-section" class="py-2 border-b border-stone-100">Skin Matcher Quiz</a>
+                    <a href="#ingredients" class="py-2">Clean Ingredients</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-stone-200">
+                <p class="text-xs text-stone-500">Simple rituals. Healthier skin.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <main class="pt-20">
+
+        <!-- ==========================================================================
+             2. HERO SECTION WITH DYNAMIC VISUAL
+        ========================================================================== -->
+        <section class="relative min-h-[90vh] flex items-center overflow-hidden py-12 lg:py-24">
+            
+            <!-- Soft Ambient Background Circles -->
+            <div class="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-emerald-100/40 blur-3xl pointer-events-none animate-pulse-glow"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-amber-100/40 blur-3xl pointer-events-none animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Hero Copy -->
+                    <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                        
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/70 border border-stone-300/60 text-stone-700 text-xs font-semibold uppercase tracking-widest">
+                            <span class="w-2 h-2 rounded-full bg-amber-600 animate-ping"></span>
+                            <span>Skincare, Simplified</span>
+                        </div>
+
+                        <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-light text-stone-900 leading-[1.08] tracking-tight">
+                            Your skin,<br>
+                            <em class="font-normal italic text-stone-700">but better.</em>
+                        </h1>
+
+                        <p class="text-stone-600 text-base md:text-lg max-w-lg mx-auto lg:mx-0 font-normal leading-relaxed">
+                            Thoughtfully formulated rituals designed to restore barrier strength, reduce redness, and uncover your natural, luminous glow.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="pages/products.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-stone-900 text-stone-100 text-sm font-semibold hover:bg-stone-800 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2">
+                                <span>Shop Skincare</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </a>
+
+                            <a href="#quiz-section" class="w-full sm:w-auto px-8 py-4 rounded-2xl border border-stone-300 bg-white/60 backdrop-blur-md text-stone-800 text-sm font-semibold hover:bg-white transition-all text-center">
+                                Take Routine Quiz
+                            </a>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="pt-8 flex items-center justify-center lg:justify-start gap-8 border-t border-stone-200/80 text-xs font-medium text-stone-500">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span>Dermatologist Tested</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span>100% Cruelty-Free</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Right Hero Visual -->
+                    <div class="lg:col-span-6 relative flex items-center justify-center">
+                        
+                        <!-- Floating Hero Glass Backdrop -->
+                        <div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border border-white/60 bg-gradient-to-tr from-stone-200 via-stone-100 to-stone-50 animate-float p-4">
+                            <img src="assets/images/serum.jpg" alt="SKINELLE Calm Face Serum" class="w-full h-full object-cover rounded-2xl shadow-inner" />
+                            
+                            <!-- Floating Interactive Feature Card -->
+                            <div class="absolute bottom-6 left-6 right-6 glass-panel p-4 rounded-2xl shadow-lg border border-white/80 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] font-bold tracking-wider uppercase text-amber-700 block">HERO FORMULA</span>
+                                    <h4 class="font-serif text-lg font-semibold text-stone-900">Calm Face Serum</h4>
+                                    <p class="text-xs text-stone-500">5% Niacinamide + Centella</p>
+                                </div>
+                                <button type="button" onclick="openQuickView('serum-calm', true)" class="px-3.5 py-2 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all">
+                                    Quick View
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             3. BRAND PHILOSOPHY SECTION
+        ========================================================================== -->
+        <section class="py-20 bg-stone-100/70 border-y border-stone-200/80" id="story">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center space-y-4">
+                    <p class="text-xs font-bold tracking-widest uppercase text-amber-700">Why SKINELLE</p>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-light text-stone-900 leading-tight">
+                        Less noise.<br>
+                        <em class="font-normal italic">More skin.</em>
+                    </h2>
+                    <p class="text-stone-600 text-base md:text-lg leading-relaxed font-normal pt-2">
+                        We believe skincare shouldn't feel like a 10-step math problem. SKINELLE distills skincare down to its essential rituals—using biocompatible active botanicals that soothe, protect, and respect your natural moisture barrier.
+                    </p>
+                </div>
+
+                <!-- 3 Pillars Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                    <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-xs hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-900 flex items-center justify-center text-xl font-serif font-bold mb-6">01</div>
+                        <h3 class="font-serif text-2xl font-medium text-stone-900 mb-2">Purposeful Formulas</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed">No filler ingredients, synthetic fragrances, or aggressive harsh acids. Just clean, proven botanicals.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-xs hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-900 flex items-center justify-center text-xl font-serif font-bold mb-6">02</div>
+                        <h3 class="font-serif text-2xl font-medium text-stone-900 mb-2">Barrier Repair First</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed">Every formula is built around restoring lipid balance and maintaining your skin's natural pH 5.5 equilibrium.</p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-3xl border border-stone-200/80 shadow-xs hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 rounded-2xl bg-stone-100 text-stone-900 flex items-center justify-center text-xl font-serif font-bold mb-6">03</div>
+                        <h3 class="font-serif text-2xl font-medium text-stone-900 mb-2">Sustainable Elegance</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed">Recyclable glass containers, FSC-certified cardboard, and eco-conscious sourcing for a lighter footprint.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             4. FEATURED PRODUCTS SHOWCASE
+        ========================================================================== -->
+        <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <p class="text-xs font-bold tracking-widest uppercase text-amber-700 mb-2">THE ESSENTIALS</p>
+                    <h2 class="font-serif text-4xl font-light text-stone-900">Meet your new ritual.</h2>
+                </div>
+                <a href="pages/products.html" class="inline-flex items-center gap-2 text-sm font-semibold text-stone-900 hover:text-amber-800 transition-colors group">
+                    <span>View all products</span>
+                    <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Product 1 -->
+                <article class="group bg-white rounded-3xl overflow-hidden border border-stone-200/80 hover:border-stone-400 transition-all duration-300 shadow-xs hover:shadow-xl flex flex-col">
+                    <div class="relative aspect-square overflow-hidden bg-stone-100">
+                        <img src="assets/images/serum.jpg" alt="Calm Face Serum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                        <span class="absolute top-4 left-4 bg-stone-900/90 backdrop-blur-md text-stone-100 text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">Bestseller</span>
+                        <div class="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button type="button" onclick="openQuickView('serum-calm', true)" class="px-4 py-2.5 rounded-xl bg-white/90 backdrop-blur-md text-stone-900 text-xs font-semibold shadow-lg hover:bg-white transition-all">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-2">
+                                <span class="text-stone-400 uppercase font-semibold">Serum</span>
+                                <span class="text-amber-500 font-semibold">★ 4.9 (128)</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-stone-900 mb-1">Calm Face Serum</h3>
+                            <p class="text-xs text-stone-500 mb-4">Barrier support & redness relief · 30ml</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-stone-100">
+                            <span class="text-lg font-bold text-stone-900">₹899</span>
+                            <button type="button" onclick="storeCart.addItem('serum-calm', null, 1, true); if(window.openCartDrawer) window.openCartDrawer();" class="px-4 py-2 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors">Add to Bag</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 2 -->
+                <article class="group bg-white rounded-3xl overflow-hidden border border-stone-200/80 hover:border-stone-400 transition-all duration-300 shadow-xs hover:shadow-xl flex flex-col">
+                    <div class="relative aspect-square overflow-hidden bg-stone-100">
+                        <img src="assets/images/moisturizer.jpg" alt="Cloud Dew Moisturizer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                        <span class="absolute top-4 left-4 bg-amber-800/90 backdrop-blur-md text-stone-100 text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">Trending</span>
+                        <div class="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button type="button" onclick="openQuickView('cream-cloud', true)" class="px-4 py-2.5 rounded-xl bg-white/90 backdrop-blur-md text-stone-900 text-xs font-semibold shadow-lg hover:bg-white transition-all">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-2">
+                                <span class="text-stone-400 uppercase font-semibold">Moisturizer</span>
+                                <span class="text-amber-500 font-semibold">★ 4.8 (96)</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-stone-900 mb-1">Cloud Dew Moisturizer</h3>
+                            <p class="text-xs text-stone-500 mb-4">Deep hydration & skin cushion · 50ml</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-stone-100">
+                            <span class="text-lg font-bold text-stone-900">₹799</span>
+                            <button type="button" onclick="storeCart.addItem('cream-cloud', null, 1, true); if(window.openCartDrawer) window.openCartDrawer();" class="px-4 py-2 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors">Add to Bag</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product 3 -->
+                <article class="group bg-white rounded-3xl overflow-hidden border border-stone-200/80 hover:border-stone-400 transition-all duration-300 shadow-xs hover:shadow-xl flex flex-col">
+                    <div class="relative aspect-square overflow-hidden bg-stone-100">
+                        <img src="assets/images/sunscreen.jpg" alt="Daily Shield Sunscreen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                        <span class="absolute top-4 left-4 bg-emerald-900/90 backdrop-blur-md text-stone-100 text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full">Essential</span>
+                        <div class="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                            <button type="button" onclick="openQuickView('spf-shield', true)" class="px-4 py-2.5 rounded-xl bg-white/90 backdrop-blur-md text-stone-900 text-xs font-semibold shadow-lg hover:bg-white transition-all">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs mb-2">
+                                <span class="text-stone-400 uppercase font-semibold">Sunscreen</span>
+                                <span class="text-amber-500 font-semibold">★ 4.9 (154)</span>
+                            </div>
+                            <h3 class="font-serif text-xl font-medium text-stone-900 mb-1">Daily Shield Sunscreen SPF 50+</h3>
+                            <p class="text-xs text-stone-500 mb-4">Invisible weightless protection · 50ml</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-stone-100">
+                            <span class="text-lg font-bold text-stone-900">₹749</span>
+                            <button type="button" onclick="storeCart.addItem('spf-shield', null, 1, true); if(window.openCartDrawer) window.openCartDrawer();" class="px-4 py-2 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors">Add to Bag</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             5. INTERACTIVE SKINCARE ROUTINE BUILDER / QUIZ SECTION
+        ========================================================================== -->
+        <section class="py-20 bg-stone-900 text-stone-100" id="quiz-section">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                    <span class="text-xs font-bold tracking-widest uppercase text-amber-400">Match My Skin</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-light">Find your ideal ritual.</h2>
+                    <p class="text-stone-400 text-sm">Answer 3 simple questions and our skin diagnostic will match you with a tailored 3-step routine.</p>
+                </div>
+
+                <!-- Dynamic Quiz Host Container -->
+                <div id="skinelle-quiz-container" class="bg-stone-800/80 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-stone-700 shadow-2xl">
+                    <!-- Javascript populates interactive steps here -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             6. INGREDIENT SPOTLIGHT
+        ========================================================================== -->
+        <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="ingredients">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <p class="text-xs font-bold tracking-widest uppercase text-amber-700">WHAT'S INSIDE</p>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-light text-stone-900 leading-tight">
+                        Good ingredients.<br>
+                        <em class="font-normal italic">Nothing unnecessary.</em>
+                    </h2>
+                    <p class="text-stone-600 text-base leading-relaxed">
+                        Every SKINELLE formula is designed around bio-available actives with a purpose — gentle enough for sensitive skin and potent enough to deliver noticeable transformation.
+                    </p>
+                    <div class="pt-4">
+                        <a href="pages/products.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-stone-300 text-stone-800 text-xs font-semibold hover:bg-stone-100 transition-colors">
+                            <span>Explore All Formulas</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-4">
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs flex items-start gap-6 hover:border-amber-400 transition-colors">
+                        <span class="text-2xl font-serif font-bold text-amber-800">01</span>
+                        <div>
+                            <h3 class="font-serif text-xl font-semibold text-stone-900 mb-1">5% Niacinamide (Vitamin B3)</h3>
+                            <p class="text-sm text-stone-600">Supports an even-looking complexion, minimizes pore appearance, and reinforces skin barrier ceramides.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs flex items-start gap-6 hover:border-emerald-400 transition-colors">
+                        <span class="text-2xl font-serif font-bold text-emerald-800">02</span>
+                        <div>
+                            <h3 class="font-serif text-xl font-semibold text-stone-900 mb-1">Centella Asiatica (Cica)</h3>
+                            <p class="text-sm text-stone-600">Legendary calming botanical known for soothing irritated skin and accelerating natural recovery.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-xs flex items-start gap-6 hover:border-sky-400 transition-colors">
+                        <span class="text-2xl font-serif font-bold text-sky-800">03</span>
+                        <div>
+                            <h3 class="font-serif text-xl font-semibold text-stone-900 mb-1">Triple-Weight Hyaluronic Acid</h3>
+                            <p class="text-sm text-stone-600">Penetrates multiple epidermic layers to replenish moisture, plump fine lines, and impart a dewy sheen.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             7. NEWSLETTER SECTION
+        ========================================================================== -->
+        <section class="py-20 bg-stone-200/60 border-t border-stone-300/60">
+            <div class="max-w-3xl mx-auto px-4 text-center space-y-6">
+                <p class="text-xs font-bold tracking-widest uppercase text-stone-500">STAY IN THE LOOP</p>
+                <h2 class="font-serif text-4xl sm:text-5xl font-light text-stone-900">
+                    A little skincare wisdom,<br>
+                    <em class="font-normal italic">delivered to your inbox.</em>
+                </h2>
+                <p class="text-sm text-stone-600 max-w-md mx-auto">Subscribe for exclusive routine tips, early access to new formulas, and 10% off your first order.</p>
+
+                <form onsubmit="event.preventDefault(); showToast('✨ Subscribed! Check your inbox for code WELCOME10.'); this.reset();" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-4">
+                    <input type="email" required placeholder="Enter your email address" class="flex-grow px-5 py-3.5 rounded-xl border border-stone-300 bg-white text-stone-900 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                    <button type="submit" class="px-6 py-3.5 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors whitespace-nowrap shadow-md">Subscribe →</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================================================
+         8. FOOTER
+    ========================================================================== -->
+    <footer class="bg-stone-900 text-stone-300 py-16 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-stone-800">
+                <div class="space-y-4">
+                    <span class="font-serif text-2xl font-bold tracking-wider text-white">SKINELLE</span>
+                    <p class="text-xs text-stone-400 leading-relaxed">Thoughtfully formulated skincare rituals for calm, healthy, and naturally radiant skin.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Shop</h4>
+                    <ul class="space-y-2 text-xs text-stone-400">
+                        <li><a href="pages/products.html" class="hover:text-white">All Formulas</a></li>
+                        <li><a href="pages/products.html" class="hover:text-white">Serums & Elixirs</a></li>
+                        <li><a href="pages/products.html" class="hover:text-white">Moisturizers</a></li>
+                        <li><a href="pages/products.html" class="hover:text-white">Sun Care</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Company</h4>
+                    <ul class="space-y-2 text-xs text-stone-400">
+                        <li><a href="#story" class="hover:text-white">Our Philosophy</a></li>
+                        <li><a href="#ingredients" class="hover:text-white">Ingredients Library</a></li>
+                        <li><a href="#quiz-section" class="hover:text-white">Skin Diagnostic Quiz</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Customer Care</h4>
+                    <p class="text-xs text-stone-400 mb-2">Questions? We are here to help.</p>
+                    <a href="mailto:care@skinelle.com" class="text-xs text-amber-400 hover:underline">care@skinelle.com</a>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+                <p>© 2026 SKINELLE Storefront. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-stone-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-stone-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ==========================================================================
+         9. SLIDE-OVER CART DRAWER MODAL
+    ========================================================================== -->
+    <div id="cart-drawer-overlay" class="fixed inset-0 z-50 bg-stone-950/50 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none"></div>
+    
+    <div id="cart-slide-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[#FBF9F5] shadow-2xl transition-transform duration-300 ease-out transform translate-x-full flex flex-col">
+        <!-- Drawer Header -->
+        <div class="p-6 border-b border-stone-200 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Your Bag</h3>
+                <span class="cart-count-badge bg-stone-900 text-white text-xs font-bold px-2.5 py-0.5 rounded-full">0</span>
+            </div>
+            <button type="button" id="close-cart-drawer" class="p-2 text-stone-500 hover:text-stone-900">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <!-- Free Shipping Meter -->
+        <div class="px-6 py-3 bg-stone-100 border-b border-stone-200">
+            <p id="free-shipping-text" class="text-xs text-stone-600 text-center mb-2">Calculating shipping...</p>
+            <div class="w-full h-1.5 bg-stone-200 rounded-full overflow-hidden">
+                <div id="free-shipping-progress" class="h-full bg-emerald-600 transition-all duration-300" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <!-- Drawer Content -->
+        <div class="flex-grow overflow-y-auto p-6 space-y-4">
+            <div id="cart-drawer-empty" class="text-center py-16 space-y-4">
+                <svg class="w-16 h-16 text-stone-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                <h4 class="font-serif text-xl font-medium text-stone-800">Your bag is empty</h4>
+                <p class="text-xs text-stone-500 max-w-xs mx-auto">Explore our clean skincare rituals to get started.</p>
+                <a href="pages/products.html" onclick="if(window.closeCartDrawer) window.closeCartDrawer();" class="inline-block px-6 py-3 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors">Start Shopping</a>
+            </div>
+            
+            <div id="cart-drawer-items"></div>
+        </div>
+
+        <!-- Drawer Footer -->
+        <div id="cart-drawer-footer" class="p-6 border-t border-stone-200 bg-white space-y-4 hidden">
+            <div class="flex justify-between text-sm">
+                <span class="text-stone-500">Subtotal</span>
+                <span id="cart-drawer-subtotal" class="font-bold text-stone-900">₹0</span>
+            </div>
+            <div class="flex justify-between text-base font-bold border-t border-stone-100 pt-3">
+                <span class="text-stone-900">Total</span>
+                <span id="cart-drawer-total" class="text-stone-900">₹0</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <a href="pages/cart.html" class="py-3.5 rounded-xl border border-stone-300 text-stone-800 text-xs font-semibold text-center hover:bg-stone-50 transition-colors">View Cart Page</a>
+                <button type="button" onclick="triggerCheckoutSimulation()" class="py-3.5 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors shadow-md">Checkout Now</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================
+         10. QUICK VIEW MODAL
+    ========================================================================== -->
+    <div id="quick-view-overlay" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-xs opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="quick-view-modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-11/12 max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative grid grid-cols-1 md:grid-cols-2">
+            <button type="button" id="close-quick-view" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 backdrop-blur-md text-stone-600 hover:text-stone-900 shadow-md">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <div class="bg-stone-100 aspect-square">
+                <img id="qv-product-image" src="" alt="" class="w-full h-full object-cover" />
+            </div>
+
+            <div class="p-6 md:p-8 flex flex-col justify-between space-y-4 max-h-[80vh] overflow-y-auto">
+                <div>
+                    <span id="qv-product-category" class="text-[10px] font-bold tracking-wider uppercase text-amber-700 block mb-1">SERUMS</span>
+                    <h3 id="qv-product-name" class="font-serif text-2xl font-semibold text-stone-900 mb-2">Product Name</h3>
+                    <p id="qv-product-price" class="text-xl font-bold text-stone-900 mb-4">₹0</p>
+                    <p id="qv-product-desc" class="text-xs text-stone-600 leading-relaxed mb-4">Description text...</p>
+                    
+                    <div class="mb-4">
+                        <label class="text-[11px] font-bold text-stone-500 uppercase tracking-wider block mb-2">Select Volume</label>
+                        <div id="qv-volume-options" class="flex gap-2"></div>
+                    </div>
+
+                    <div>
+                        <label class="text-[11px] font-bold text-stone-500 uppercase tracking-wider block mb-2">Key Actives</label>
+                        <div id="qv-product-ingredients" class="flex flex-wrap gap-1.5"></div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-stone-200">
+                    <button type="button" id="qv-add-to-bag" class="w-full py-3.5 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all shadow-lg">
+                        Add to Shopping Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================
+         11. CHECKOUT SIMULATOR MODAL
+    ========================================================================== -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white max-w-md w-full rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-4">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Express Checkout</h3>
+                <button type="button" onclick="closeCheckoutModal()" class="text-stone-400 hover:text-stone-900">✕</button>
+            </div>
+            
+            <form onsubmit="completeCheckoutOrder(event)" class="space-y-4">
+                <div>
+                    <label class="text-xs font-semibold text-stone-700 block mb-1">Full Name</label>
+                    <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                </div>
+                <div>
+                    <label class="text-xs font-semibold text-stone-700 block mb-1">Shipping Address</label>
+                    <input type="text" required placeholder="123 Serenity Blvd, Suite 4" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-xs font-semibold text-stone-700 block mb-1">City</label>
+                        <input type="text" required placeholder="Mumbai" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                    </div>
+                    <div>
+                        <label class="text-xs font-semibold text-stone-700 block mb-1">PIN Code</label>
+                        <input type="text" required placeholder="400001" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                    </div>
+                </div>
+
+                <div class="p-4 bg-stone-50 rounded-2xl border border-stone-200 text-xs space-y-1">
+                    <div class="flex justify-between font-medium text-stone-600"><span>Payment Method</span><span>UPI / Cash on Delivery</span></div>
+                    <div class="flex justify-between font-bold text-stone-900 pt-2 border-t border-stone-200"><span>Amount Payable</span><span class="text-amber-800">Free Demo Order</span></div>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all shadow-lg">Confirm & Place Order →</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Core Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Bag — SKINELLE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body class="bg-[#FBF9F5] text-stone-900 font-sans antialiased">
+
+    <!-- NAVIGATION BAR -->
+    <header class="skinelle-navbar fixed top-0 left-0 right-0 z-40 bg-stone-50/90 backdrop-blur-md border-b border-stone-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-2">
+                <span class="font-serif text-2xl md:text-3xl font-semibold tracking-wider text-stone-900">SKINELLE</span>
+                <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide text-stone-600">
+                <a href="../index.html" class="hover:text-stone-900 transition-colors">Home</a>
+                <a href="products.html" class="hover:text-stone-900 transition-colors">Shop All</a>
+                <a href="../index.html#quiz-section" class="hover:text-stone-900 transition-colors">Skin Quiz</a>
+            </nav>
+
+            <div class="flex items-center space-x-4 sm:space-x-6">
+                <a href="cart.html" class="relative flex items-center gap-2.5 px-4 py-2 rounded-full bg-stone-900 text-stone-100 text-xs font-semibold hover:bg-stone-800 transition-all shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span>Bag</span>
+                    <span class="cart-count-badge hidden bg-amber-500 text-stone-950 text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center -mr-1">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="pt-28 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <h1 class="font-serif text-4xl sm:text-5xl font-light text-stone-900">Your Shopping Bag</h1>
+            <p class="text-stone-600 text-sm">Review your selected skincare essentials before checkout.</p>
+        </div>
+
+        <div id="full-cart-page-content" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <!-- Dynamic JavaScript populates full cart page here -->
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-300 py-12 border-t border-stone-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="font-serif text-xl font-bold tracking-wider text-white block mb-2">SKINELLE</span>
+            <p class="text-stone-400">© 2026 SKINELLE. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- CHECKOUT SIMULATOR MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-stone-950/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white max-w-md w-full rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-4">
+                <h3 class="font-serif text-2xl font-semibold text-stone-900">Express Checkout</h3>
+                <button type="button" onclick="closeCheckoutModal()" class="text-stone-400 hover:text-stone-900">✕</button>
+            </div>
+            <form onsubmit="completeCheckoutOrder(event)" class="space-y-4">
+                <div>
+                    <label class="text-xs font-semibold text-stone-700 block mb-1">Full Name</label>
+                    <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                </div>
+                <div>
+                    <label class="text-xs font-semibold text-stone-700 block mb-1">Shipping Address</label>
+                    <input type="text" required placeholder="123 Serenity Blvd, Suite 4" class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-stone-900" />
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all shadow-lg">Confirm & Place Order →</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="../js/store.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFullCartPage();
+        });
+
+        document.addEventListener('skinelle:cartUpdated', () => {
+            renderFullCartPage();
+        });
+
+        function renderFullCartPage() {
+            const container = document.getElementById('full-cart-page-content');
+            if (!container) return;
+
+            if (storeCart.items.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full bg-white p-12 rounded-3xl border border-stone-200 text-center space-y-4 shadow-xs">
+                        <svg class="w-16 h-16 text-stone-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        <h3 class="font-serif text-2xl font-medium text-stone-900">Your bag is currently empty</h3>
+                        <p class="text-sm text-stone-500 max-w-sm mx-auto">Explore our collection of biocompatible skincare formulas.</p>
+                        <a href="products.html" class="inline-block px-8 py-3.5 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors shadow-md">Explore Shop Catalog</a>
+                    </div>
+                `;
+                return;
+            }
+
+            const freeShippingRemaining = FREE_SHIPPING_THRESHOLD - storeCart.Subtotal;
+            const isFreeShipping = freeShippingRemaining <= 0;
+
+            container.innerHTML = `
+                <!-- Left Items Table -->
+                <div class="lg:col-span-8 space-y-4">
+                    
+                    <!-- Free Shipping Meter Card -->
+                    <div class="bg-stone-100 p-4 rounded-2xl border border-stone-200 flex items-center justify-between text-xs">
+                        <span>${isFreeShipping ? '<span class="text-emerald-700 font-bold">🎉 Free Shipping Unlocked!</span>' : `Add <strong>${formatCurrency(freeShippingRemaining)}</strong> more to get <strong>Free Express Shipping</strong>`}</span>
+                        <div class="w-24 h-2 bg-stone-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-600" style="width: ${Math.min(100, (storeCart.Subtotal / FREE_SHIPPING_THRESHOLD) * 100)}%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3xl border border-stone-200/80 p-6 shadow-xs divide-y divide-stone-100">
+                        ${storeCart.items.map(item => `
+                            <div class="py-6 first:pt-0 last:pb-0 flex items-center gap-6">
+                                <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-2xl bg-stone-100 flex-shrink-0" />
+                                <div class="flex-grow min-w-0">
+                                    <h4 class="font-serif text-lg font-semibold text-stone-900 truncate">${item.name}</h4>
+                                    <p class="text-xs text-stone-500 mb-3">${item.volume}</p>
+                                    <div class="flex items-center gap-4">
+                                        <div class="inline-flex items-center border border-stone-300 rounded-lg text-xs">
+                                            <button onclick="storeCart.updateQuantity('${item.key}', -1)" class="px-2.5 py-1 text-stone-600 hover:bg-stone-100">-</button>
+                                            <span class="px-3 font-bold text-stone-900">${item.quantity}</span>
+                                            <button onclick="storeCart.updateQuantity('${item.key}', 1)" class="px-2.5 py-1 text-stone-600 hover:bg-stone-100">+</button>
+                                        </div>
+                                        <button onclick="storeCart.removeItem('${item.key}')" class="text-xs text-rose-500 hover:underline">Remove</button>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-base font-bold text-stone-900">${formatCurrency(item.price * item.quantity)}</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <!-- Right Order Summary Box -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-stone-200/80 shadow-xs space-y-6">
+                        <h3 class="font-serif text-2xl font-semibold text-stone-900 pb-4 border-b border-stone-100">Order Summary</h3>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between text-stone-600">
+                                <span>Subtotal</span>
+                                <span class="font-semibold text-stone-900">${formatCurrency(storeCart.Subtotal)}</span>
+                            </div>
+
+                            ${storeCart.appliedDiscount ? `
+                                <div class="flex justify-between text-emerald-700">
+                                    <span>Discount (${storeCart.appliedDiscount.code})</span>
+                                    <span class="font-semibold">-${formatCurrency(storeCart.DiscountAmount)}</span>
+                                </div>
+                            ` : ''}
+
+                            <div class="flex justify-between text-stone-600">
+                                <span>Express Shipping</span>
+                                <span class="font-semibold text-stone-900">${isFreeShipping ? 'FREE' : '₹99'}</span>
+                            </div>
+
+                            <div class="flex justify-between text-lg font-bold text-stone-900 pt-4 border-t border-stone-100">
+                                <span>Total</span>
+                                <span class="text-amber-900">${formatCurrency(storeCart.FinalTotal + (isFreeShipping ? 0 : 99))}</span>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code Form -->
+                        <div class="pt-4 border-t border-stone-100">
+                            ${storeCart.appliedDiscount ? `
+                                <div class="flex items-center justify-between bg-emerald-50 text-emerald-800 text-xs px-3 py-2 rounded-xl border border-emerald-200">
+                                    <span>Code <strong>${storeCart.appliedDiscount.code}</strong> Applied!</span>
+                                    <button onclick="storeCart.removePromoCode()" class="text-emerald-900 underline font-bold">Remove</button>
+                                </div>
+                            ` : `
+                                <form onsubmit="event.preventDefault(); const res = storeCart.applyPromoCode(this.promo.value); if(res.success) this.reset();" class="flex gap-2">
+                                    <input type="text" name="promo" placeholder="Promo code (WELCOME10)" class="flex-grow px-3 py-2 rounded-xl border border-stone-300 text-xs focus:outline-none focus:ring-1 focus:ring-stone-900 uppercase" />
+                                    <button type="submit" class="px-4 py-2 rounded-xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-colors">Apply</button>
+                                </form>
+                            `}
+                        </div>
+
+                        <button type="button" onclick="triggerCheckoutSimulation()" class="w-full py-4 rounded-2xl bg-stone-900 text-white text-xs font-semibold hover:bg-stone-800 transition-all shadow-xl">
+                            Proceed to Checkout →
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
